@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+
+<h2>Form Submissions</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+let submissions =
+JSON.parse(localStorage.getItem("submissions")) || [];
+
+let tableBody = document.getElementById("tableBody");
+
+submissions.forEach(function(data){
+
+    tableBody.innerHTML += `
+    <tr>
+        <td>${data.name}</td>
+        <td>${data.email}</td>
+        <td>${data.message}</td>
+        <td>${data.date}</td>
+    </tr>
+    `;
+});
+</script>
+
+</body>
+</html>
